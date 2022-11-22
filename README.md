@@ -4,7 +4,7 @@ This repo describes how to setup a Jenkins job with a custome pipeline to a Gith
 
 ## Project setup
 
-Add a file named *Jenkinsfile* with the following code (In this case the foldername is jenkins-custom-pipeline)
+Add a file named *Jenkinsfile* to your root directory with the following code (In this case the foldername is jenkins-custom-pipeline)
 ```
 pipeline {
     agent any
@@ -35,7 +35,7 @@ pipeline {
 }
 ```
 
-Add the correct maven plugins
+Add the correct maven plugins to your POM file
 
 ```
 			<plugin>
@@ -64,16 +64,14 @@ Add the correct maven plugins
 
 ![alt text](https://github.com/DriesVanHool/jenkins-custom-pipeline/blob/main/images/githubURL.png)
 
-4. To schedual your builds use Poll SCM. In the bellow example the trigger is set to every 5 minutes
+4. To schedual your builds use Poll SCM. In the example bellow the trigger is set to every 5 minutes
 
 ![alt text](https://github.com/DriesVanHool/jenkins-custom-pipeline/blob/main/images/pollSCM.jpg)
 
-5. After this set the Pipeline script from SCM
+5. After this set the Pipeline script from SCM (Git). To add credentials you have to create a token. This you can do via *Github usersettings > Developer settings > Personal token*.
 
 ![alt text](https://github.com/DriesVanHool/jenkins-custom-pipeline/blob/main/images/pipelineDefenition.png)
 
-6. Here you have to create a token. This you can do via Github usersettings > Developer settings > Personal token.
+You also need to specify your branch. In the case of Github this will be main.
 
-![alt text](https://github.com/DriesVanHool/jenkins-custom-pipeline/blob/main/images/pipelineDefenition.png)
-
-You have to also specify your branch. In the case of Github this will be main.
+After this you are ready to go.

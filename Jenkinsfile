@@ -12,9 +12,9 @@ pipeline {
                 sh 'mvn clean install -DskipTests'
             }
         }
-        stage('10-programming-fundamentals-java') {
+        stage('jenkins-custom-pipeline') {
             steps {
-                sh 'cd 10-programming-fundamentals-java && mvn -Dmaven.test.failure.ignore=true test'
+                sh 'cd jenkins-custom-pipeline && mvn -Dmaven.test.failure.ignore=true test'
             }
         }
     }
