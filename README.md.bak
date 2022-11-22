@@ -2,36 +2,20 @@
 
 This repo describes how to setup a Jenkins job with a custome pipeline to a Github repository.
 
-## Installation
+First create a new Item and select Pipeline.
+https://github.com/DriesVanHool/jenkins-custom-pipeline/blob/main/images/newItem.jpg
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Preferably discard your builds. You can choose the maximum amount of builds.
+https://github.com/DriesVanHool/jenkins-custom-pipeline/blob/main/images/discardBuilds.jpg
 
-```bash
-pip install foobar
-```
+Fill in the url to your repository
+https://github.com/DriesVanHool/jenkins-custom-pipeline/blob/main/images/githubURL.png
 
-## Usage
+To schedual your builds use Poll SCM. In the bellow example the trigger is set to every 5 minutes
+https://github.com/DriesVanHool/jenkins-custom-pipeline/blob/main/images/pollSCM.jpg
 
-```python
-import foobar
+After this set the Pipeline script from SCM
+https://github.com/DriesVanHool/jenkins-custom-pipeline/blob/main/images/pipelineDefenition.png
 
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+Here you have to create a token. This you can do via Github usersettings > Developer settings > Personal token.
+You have to also specify your branch. In the case of Github this will be main.
