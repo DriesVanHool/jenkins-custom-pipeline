@@ -4,7 +4,7 @@ This repo describes how to setup a Jenkins job with a custome pipeline to a Gith
 
 ## Project setup
 
-Add a file named *Jenkinsfile* to your root directory with the following code (In this case the foldername is jenkins-custom-pipeline)
+Add a file named *Jenkinsfile* to your root directory with the following code.
 ```
 pipeline {
     agent any

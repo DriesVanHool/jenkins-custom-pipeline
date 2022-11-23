@@ -14,7 +14,7 @@ pipeline {
         }
         stage('jenkins-custom-pipeline') {
             steps {
-                sh 'cd jenkins-custom-pipeline && mvn -Dmaven.test.failure.ignore=true test'
+                sh 'mvn -Dmaven.test.failure.ignore=true test'
             }
         }
     }
