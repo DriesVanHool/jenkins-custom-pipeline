@@ -22,14 +22,15 @@ pipeline {
         }
         stage('jenkins-custom-pipeline') {
             steps {
-                sh 'cd jenkins-custom-pipeline && mvn -Dmaven.test.failure.ignore=true test'
+                sh 'mvn -Dmaven.test.failure.ignore=true test'
             }
         }
     }
 
     post {
         always {
-            junit '**/target/surefire-reports/*.xml'
+            publishCoverage adapters: [jacocoAdapter('target/site/jacoco/jacoco.xml')]
+            junit 'target/surefire-reports/*.xml'
         }
     }
 }
@@ -48,6 +49,26 @@ Add the correct maven plugins to your POM file
 				<artifactId>maven-surefire-report-plugin</artifactId>
 				<version>2.22.2</version>
 			</plugin>
+			            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 ```
 
 ## Pipline setup in Jenkins
